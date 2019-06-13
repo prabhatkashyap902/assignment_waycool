@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.prodev.assignment_waycool.R;
-import com.prodev.assignment_waycool.model.model;
+import com.prodev.assignment_waycool.models.model;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

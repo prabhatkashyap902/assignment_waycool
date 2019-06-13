@@ -1,4 +1,4 @@
-package com.prodev.assignment_waycool.model;
+package com.prodev.assignment_waycool.models;
 
 public class model {
     private String name,img;

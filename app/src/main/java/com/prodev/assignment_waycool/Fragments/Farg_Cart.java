@@ -10,12 +10,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.prodev.assignment_waycool.R;
 import com.prodev.assignment_waycool.adapter.Recycle_adp_cart;
 import com.prodev.assignment_waycool.api.api_interface;
-import com.prodev.assignment_waycool.model.model;
+import com.prodev.assignment_waycool.models.model;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,14 +36,14 @@ public class Farg_Cart extends Fragment {
     Recycle_adp_cart reca   ;
     ArrayList<model> modelRecyclerArrayList;
     model modelRecycler;
+    ProgressBar pg;
 
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         fetchJSON();
-        rec.setLayoutManager(new LinearLayoutManager(getActivity()));
-        rec.setAdapter(reca);
+
     }
 
 
@@ -53,11 +54,12 @@ public class Farg_Cart extends Fragment {
 
         View Rootview= inflater.inflate(R.layout.fragment_farg_cart, container, false);
         rec = (RecyclerView) Rootview.findViewById(R.id.recycle_cart);
+        pg= (ProgressBar)Rootview.findViewById(R.id.progress);
+        pg.setVisibility(View.VISIBLE);
 
         fetchJSON();
 
-        rec.setLayoutManager(new LinearLayoutManager(getActivity()));
-        rec.setAdapter(reca);
+
         return Rootview;
 
 
@@ -87,6 +89,7 @@ public class Farg_Cart extends Fragment {
 
                         String jsonresponse = response.body().toString();
                        // Log.i("Done",modelRecyclerArrayList.toString());
+                        pg.setVisibility(View.INVISIBLE);
                         writeRecycler(jsonresponse);
 
 
@@ -138,6 +141,9 @@ public class Farg_Cart extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+        rec.setLayoutManager(new LinearLayoutManager(getActivity()));
+        rec.setAdapter(reca);
 
     }
 

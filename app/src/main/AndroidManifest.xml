@@ -9,13 +9,15 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@drawable/android"
+        android:roundIcon="@drawable/android"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"
-            android:label="WayCool"/>
+            android:label="WayCool"
+            android:screenOrientation="portrait"/>
         <activity android:name=".Splash_screen"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
